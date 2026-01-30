@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Арина Филатова — Project Manager (B2B / IT / Digital). Сроки, бюджет, риски, команда, результат." />
+  <meta name="description" content="Арина Филатова — Project Manager (B2B / IT / Digital)" />
   <title>Арина Филатова — Project Manager</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
   <style>
     :root{
@@ -19,7 +22,9 @@
       --radius:16px;
       --max:980px;
     }
+
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
@@ -30,10 +35,12 @@
       color:var(--text);
       line-height:1.6;
     }
-    a{ color:var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
 
-    .container{ max-width:var(--max); margin:0 auto; padding:64px 24px; }
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:64px 24px;
+    }
 
     header{
       margin-bottom:56px;
@@ -45,33 +52,38 @@
 
     .heroRow{
       display:flex;
-      gap:22px;
+      gap:24px;
       align-items:flex-start;
       flex-wrap:wrap;
     }
 
-    /* Фото: уменьшили. Пропорции 363x453 держим через aspect-ratio */
     .photoWrap{
-      width:260px;                 /* <- если надо ещё меньше: 230px; ещё больше: 280px */
-      aspect-ratio: 363 / 453;
+      width:240px;
+      height:300px;
       border-radius:22px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(0,0,0,.18);
       flex:0 0 auto;
     }
+
     .photoWrap img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
-      object-position: 50% 15%;    /* <- поднимает лицо выше/ниже. 15% = чуть выше центра */
     }
 
-    h1{ font-size:42px; margin:0; letter-spacing:-0.5px; }
-    .subtitle{ font-size:18px; color:var(--muted); margin:6px 0 0; }
+    h1{ font-size:42px; margin:0; }
+    .subtitle{ font-size:18px; color:var(--muted); margin:4px 0 0; }
 
-    .badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
     .badge{
       font-size:13px;
       color:var(--muted);
@@ -83,17 +95,25 @@
       align-items:center;
       gap:8px;
     }
+
     .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow:0 0 0 3px rgba(122,162,255,.12);
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
     }
 
-    .links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
     .btn{
       display:inline-flex;
       align-items:center;
-      gap:10px;
+      gap:8px;
       padding:10px 14px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.10);
@@ -103,20 +123,28 @@
       font-size:14px;
       white-space:nowrap;
     }
+
     .btn.primary{
       border-color:rgba(122,162,255,.55);
       background:linear-gradient(135deg, rgba(122,162,255,.28), rgba(46,229,157,.14));
     }
-    .btn.secondary{ color:var(--muted); font-weight:600; }
 
-    h2{ font-size:26px; margin-top:56px; margin-bottom:14px; letter-spacing:-0.2px; }
-    h3{ font-size:16px; margin:0 0 10px; letter-spacing:0.1px; }
+    h2{
+      font-size:26px;
+      margin-top:56px;
+      margin-bottom:14px;
+    }
 
     .section{ margin-bottom:26px; }
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:16px;
+    }
 
     .card{
-      background:rgba(22,22,31,.80);
+      background:rgba(22,22,31,.8);
       border:1px solid rgba(255,255,255,.06);
       border-radius:var(--radius);
       padding:18px;
@@ -125,32 +153,7 @@
     ul{ padding-left:18px; margin:0; }
     li{ margin-bottom:8px; color:var(--muted); }
 
-    .kpi{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .chip{
-      font-size:13px;
-      color:var(--muted);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.10);
-      padding:6px 10px;
-      border-radius:999px;
-    }
-
-    .role{ display:flex; flex-direction:column; gap:6px; }
-    .role .lineRow{ display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; }
-    .role b{ color:var(--text); font-size:15px; }
-    .role span{ color:var(--muted2); font-size:13px; }
-
-    .small{ color:var(--muted2); font-size:13px; }
-
-    /* Иконки в контактах */
-    .ico{
-      width:16px;
-      height:16px;
-      display:inline-block;
-      vertical-align:-3px;
-      color:var(--muted);
-    }
-    .btn .ico{ color: var(--text); opacity: .85; }
+    .icon{ width:14px; height:14px; }
 
     footer{
       margin-top:56px;
@@ -160,233 +163,146 @@
       font-size:14px;
     }
 
-    @media (max-width: 700px){
-      .photoWrap{ width:200px; }
+    @media(max-width:900px){
+      .photoWrap{ width:200px; height:250px; }
     }
-    @media (max-width: 600px){
+
+    @media(max-width:600px){
       h1{ font-size:32px; }
-      h2{ font-size:22px; }
-      header{ padding:20px; }
-      .photoWrap{ width:180px; }
+      .photoWrap{ width:170px; height:215px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <div class="heroRow">
-        <div class="photoWrap">
-          <img src="photo.jpg" alt="Арина Филатова" />
-        </div>
+<div class="container">
 
-        <div>
-          <h1>Арина Филатова</h1>
-          <p class="subtitle">Project Manager (B2B / IT / Digital)</p>
+<header>
+  <div class="heroRow">
+    <div class="photoWrap">
+      <img src="photo.jpg" alt="Арина Филатова">
+    </div>
 
-          <div class="badges">
-            <span class="badge"><span class="dot"></span>B2B</span>
-            <span class="badge">сроки</span>
-            <span class="badge">бюджет</span>
-            <span class="badge">риски</span>
-            <span class="badge">стейкхолдеры</span>
-            <span class="badge">команда</span>
-          </div>
+    <div>
+      <h1>Арина Филатова</h1>
+      <p class="subtitle">Project Manager (B2B / IT / Digital)</p>
 
-          <div class="links">
-            <a class="btn primary" href="CV.pdf" target="_blank" rel="noopener">Резюме (PDF)</a>
-            <a class="btn" href="https://nn.hh.ru/resume/7755862cff0d55146b0039ed1f50616a743972" target="_blank" rel="noopener">hh.ru</a>
-            <a class="btn" href="mailto:arina.filatova.2014@bk.ru">Email</a>
-            <a class="btn secondary" href="https://t.me/arina_filatova_07" target="_blank" rel="noopener">Telegram</a>
-            <a class="btn" href="tel:+79856161795">Телефон</a>
-          </div>
-        </div>
+      <div class="badges">
+        <span class="badge"><span class="dot"></span>B2B</span>
+        <span class="badge">сроки</span>
+        <span class="badge">бюджет</span>
+        <span class="badge">риски</span>
+        <span class="badge">стейкхолдеры</span>
+        <span class="badge">команда</span>
       </div>
-    </header>
 
-    <section class="section" id="about">
-      <h2>Кратко</h2>
-      <div class="card">
-        <p style="margin:0; color: var(--muted);">
-          Project Manager с опытом B2B-проектов и сильной базой в планировании, контроле сроков и бюджета, работе с подрядчиками и стейкхолдерами.
-          Выстраиваю системную и прозрачную работу: фиксирую договорённости, держу контрольные точки, быстро структурирую хаос и довожу проекты до результата.
-        </p>
+      <div class="links">
+        <a class="btn primary" href="CV.pdf" target="_blank">Резюме (PDF)</a>
+        <a class="btn" href="https://nn.hh.ru/resume/7755862cff0d55146b0039ed1f50616a743972" target="_blank">hh.ru</a>
+        <a class="btn" href="mailto:arina.filatova.2014@bk.ru">Email</a>
+        <a class="btn" href="https://t.me/arina_filatova_07" target="_blank">Telegram</a>
+        <a class="btn" href="tel:+79856161795">Телефон</a>
       </div>
-    </section>
-
-    <section class="section" id="value">
-      <h2>Чем я полезна</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>План и контроль</h3>
-          <ul>
-            <li>Планирование сроков/ресурсов, трекинг статусов и зависимостей</li>
-            <li>Контроль качества: чек-листы, промежуточные согласования, фиксация решений</li>
-            <li>Управление изменениями: обновляю план и коммуникации без потери результата</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Команда и стейкхолдеры</h3>
-          <ul>
-            <li>Единый контекст для команды и понятный статус-репорт для стейкхолдеров</li>
-            <li>Координация подрядчиков и кросс-функциональных ролей</li>
-            <li>Мотивация через чёткие цели, обратную связь и обучение (делала материалы для онбординга)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Бюджет и риски</h3>
-          <ul>
-            <li>Сметы/КП/согласования, контроль затрат и финансовой дисциплины</li>
-            <li>Риск-менеджмент: альтернативы и резервные подрядчики, чтобы не срывать сроки</li>
-            <li>Быстро работаю с цифрами и документами — когда важны скорость и точность</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="cases">
-      <h2>Кейсы</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>1 проект за 1 неделю: 4 клиента внутри одного проекта</h3>
-          <p style="margin:0; color: var(--muted);">
-            За одну неделю вела один проект с 4 клиентами, у каждого была своя застройка и свой набор задач.
-            Синхронизировала запросы и согласования, распределяла задачи и контрольные точки, удержала сроки и качество коммуникаций.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Сложная логистика: 3 аэропорта, 2 вокзала, команда 5 координаторов</h3>
-          <p style="margin:0; color: var(--muted);">
-            Организовала логистику проекта с несколькими точками прибытия и плотным таймингом.
-            Координировала 5 координаторов, выстроила маршруты и контроль по времени. Итог — всё прошло без сбоев.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Бюджет на 13 городов — быстро и точно</h3>
-          <p style="margin:0; color: var(--muted);">
-            Оперативно собирала и сводила бюджет проекта на 13 городов: структура, сметы, проверка вводных и согласование.
-            Ко мне обращались, когда нужно «собрать быстро», потому что я держу темп и точность в цифрах.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <h2>Опыт</h2>
-      <div class="grid">
-        <div class="card role">
-          <div class="lineRow">
-            <b>Imagency — Project Manager</b>
-            <span>07/2024 – 09/2025</span>
-          </div>
-          <ul>
-            <li>Планирование и координация проектов под руководством тимлида: согласование решений, контрольные точки, статусы</li>
-            <li>Коммуникация со стейкхолдерами и подрядчиками: согласования, статус-обновления, контроль ожиданий</li>
-            <li>Финансовая часть: сметы, сравнение коммерческих предложений, контроль затрат</li>
-            <li>Процессы: чек-листы, регламенты, материалы для онбординга</li>
-          </ul>
-          <div class="kpi">
-            <span class="chip">+10 процентных пунктов к плановой прибыли</span>
-            <span class="chip">Запуск за 1 неделю</span>
-            <span class="chip">Онбординг-материалы</span>
-          </div>
-        </div>
-
-        <div class="card role">
-          <div class="lineRow">
-            <b>ABD:Entertainment — Project Manager</b>
-            <span>06/2023 – 06/2024</span>
-          </div>
-          <ul>
-            <li>Планирование, контроль качества и сроков, координация ресурсов и подрядчиков</li>
-            <li>Поиск подрядчиков и выбор по коммерческим предложениям</li>
-            <li>Сметы, документация, контроль исполнения работ</li>
-          </ul>
-        </div>
-
-        <div class="card role">
-          <div class="lineRow">
-            <b>ЭВРИКА — Ассистент менеджера по продажам</b>
-            <span>10/2021 – 04/2022</span>
-          </div>
-          <ul>
-            <li>Договорная документация, контроль обязательств</li>
-            <li>Коммуникация по условиям поставок, поддержка менеджеров</li>
-            <li>Участие в подготовке и выигрыше 2 аукционов по 223-ФЗ</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="education">
-      <h2>Образование и обучение</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>НИУ ВШЭ — бакалавр (2018–2022)</h3>
-          <p style="margin:0; color: var(--muted);">Управление бизнесом</p>
-        </div>
-
-        <div class="card">
-          <h3>Курсы</h3>
-          <ul>
-            <li>Skillbox — Управление проектами</li>
-            <li>Skillbox — Управление командами 2.0</li>
-            <li>Stepik — «Поколение Python» (база)</li>
-            <li>SQL (база): практические задачи</li>
-            <li>Data-Analytics: Python и SQL в анализе (нац. проект «Кадры»)</li>
-            <li>Aston — «Системный аналитик с нуля» (UML/BPMN, требования, методологии) — как усиление структурного мышления в проектах</li>
-            <li>Интенсив по фронтенду (Айтилогия) — базовое понимание веб-разработки и терминологии</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <h2>Контакты</h2>
-      <div class="card">
-        <div class="links" style="margin-top:0;">
-          <a class="btn primary" href="mailto:arina.filatova.2014@bk.ru">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 6h16v12H4z"></path>
-              <path d="M4 7l8 6 8-6"></path>
-            </svg>
-            arina.filatova.2014@bk.ru
-          </a>
-
-          <a class="btn" href="https://t.me/arina_filatova_07" target="_blank" rel="noopener">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 4L3 11l7 2 2 7 9-16z"></path>
-              <path d="M10 13l11-9"></path>
-            </svg>
-            @arina_filatova_07
-          </a>
-
-          <a class="btn" href="tel:+79856161795">
-            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6.5 3.5l3 3-2 2c1.5 3 4 5.5 7 7l2-2 3 3-2 2c-1 .9-2.3 1.2-3.6.8-5.5-1.6-9.9-6-11.5-11.5-.4-1.3-.1-2.6.8-3.6l2-2z"></path>
-            </svg>
-            +7 (985) 616-17-95
-          </a>
-
-          <a class="btn secondary" href="https://nn.hh.ru/resume/7755862cff0d55146b0039ed1f50616a743972" target="_blank" rel="noopener">
-            hh.ru (резюме)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p style="margin:0;">© <span id="y"></span> Арина Филатова</p>
-    </footer>
+    </div>
   </div>
+</header>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+<section class="section">
+  <h2>Кратко</h2>
+  <div class="card">
+    <p style="margin:0;color:var(--muted);">
+      Project Manager с опытом B2B-проектов (IT / Digital). Работаю под руководством тимлида:
+      планирую и контролирую сроки, бюджет и риски, согласовываю решения,
+      выстраиваю прозрачную коммуникацию и довожу проекты до результата.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Кейсы</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Один проект — 4 клиента за 1 неделю</h3>
+      <p style="margin:0;color:var(--muted);">
+        Вела один проект с 4 клиентами внутри: у каждого была собственная застройка,
+        задачи и согласования. Синхронизировала требования, подрядчиков и сроки —
+        проект реализован в срок.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Сложная логистика</h3>
+      <p style="margin:0;color:var(--muted);">
+        Организовала логистику проекта с участниками из 3 аэропортов и 2 вокзалов,
+        координировала команду из 5 человек. Процесс прошёл без сбоев.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Бюджетирование на 13 городов</h3>
+      <p style="margin:0;color:var(--muted);">
+        Быстро собирала и сводила бюджеты на 13 городов.
+        Ко мне обращались, когда важны скорость, точность и аккуратная работа с цифрами.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Опыт</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Imagency — Project Manager</h3>
+      <ul>
+        <li>Планирование и контроль сроков, бюджета и качества под руководством тимлида</li>
+        <li>Работа с подрядчиками и внутренними командами</li>
+        <li>Подготовка смет, сравнение КП, участие в принятии решений</li>
+        <li>Рост фактической прибыли на +10 п.п. к плановой</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>ABD:Entertainment — Project Manager</h3>
+      <ul>
+        <li>Контроль сроков и качества реализации проектов</li>
+        <li>Координация подрядчиков и ресурсов</li>
+        <li>Документация и контроль исполнения работ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Образование и курсы</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>НИУ ВШЭ</h3>
+      <p style="margin:0;color:var(--muted);">
+        Бакалавр, Управление бизнесом (2018–2022)
+      </p>
+    </div>
+
+    <div class="card">
+      <ul>
+        <li>Skillbox — Управление проектами</li>
+        <li>Skillbox — Управление командами 2.0</li>
+        <li>Stepik — Python</li>
+        <li>Data Analytics: Python & SQL</li>
+        <li>Aston — System Analyst (BPMN, требования)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="y"></span> Арина Филатова</p>
+</footer>
+
+</div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
 
